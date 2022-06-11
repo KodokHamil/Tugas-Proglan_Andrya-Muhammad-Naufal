@@ -145,7 +145,7 @@ recMatkul.push_back(matkul("Pembelajaran mesin", "7", 3, "EC184503"));
 					cout << "Tahun masuk mahasiswa: " << recMhs[i].getTahunMasuk() << endl;
 					cout << "Semester mahasiswa saat ini: " << recMhs[i].getSemester() << endl;
 					cout << "SKS yang telah diselesaikan: " << recMhs[i].getSKSLulus() << endl;
-					cout << endl;
+					cout << "Matkul yang diambil mahasiswa: " << endl;
 					for(unsigned int m=0;m<recMhs[i].getAllmatkul().size();m++){
 						for(unsigned int k=0;k<recMatkul.size();k++){
 							if(recMhs[i].getAllmatkul()[m]==recMatkul[k].getId()){
@@ -153,7 +153,8 @@ recMatkul.push_back(matkul("Pembelajaran mesin", "7", 3, "EC184503"));
 								break;
 							}
 						}
-					} 
+					}
+					cout << endl; 
 				}
 			}
 				break;
