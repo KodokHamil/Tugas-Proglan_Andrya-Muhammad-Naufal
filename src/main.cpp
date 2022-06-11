@@ -6,6 +6,7 @@
 #include "include/mahasiswa.hpp"
 #include "include/dosen.hpp"
 #include "include/tendik.hpp"
+#include "include/matkul.hpp"
 
 using namespace std;
 
@@ -14,6 +15,16 @@ int main()
 	vector<mahasiswa> recMhs;
 	vector<dosen> recDosen;
 	vector<tendik> recTendik;
+	vector<matkul> recMatkul;
+	
+recMhs.push_back(mahasiswa("1","Andrya Muhammad Naufal",27,6,2003,"5024211033", "Teknik Komputer", 2021,2,42));
+recMatkul.push_back(matkul("Aljabar Linier dan Matematika Diskrit", "1", 4, "EC184301"));
+recMatkul.push_back(matkul("Metode Numerik", "2", 3, "EW184004"));
+recMatkul.push_back(matkul("Sistem Telekomunikasi", "3", 2, "EC184302"));
+recMatkul.push_back(matkul("Rangkaian elektronika", "4", 3, "EC184303"));
+recMatkul.push_back(matkul("Sistem Operasi", "5", 3, "EC184305"));
+recMatkul.push_back(matkul("Struktur data dan Analisa Algoritma", "6", 3, "EC184304"));
+recMatkul.push_back(matkul("Pembelajaran mesin", "7", 3, "EC184503"));
 
 	int menu_terpilih;
 
@@ -33,6 +44,7 @@ int main()
 		cout << "  4. Tampilkan semua Mahasiswa" << endl;
 		cout << "  5. Tampilkan semua Dosen" << endl;
 		cout << "  6. Tampilkan semua Tenaga Kependidikan" << endl;
+		cout << "  7. Tambahkan Matkul" << endl;
 		cout << "=========================================================" << endl;
 		cout << "-> Silahkan memilih salah satu: ";
 		cin >> menu_terpilih;
@@ -134,6 +146,14 @@ int main()
 					cout << "Semester mahasiswa saat ini: " << recMhs[i].getSemester() << endl;
 					cout << "SKS yang telah diselesaikan: " << recMhs[i].getSKSLulus() << endl;
 					cout << endl;
+					for(unsigned int m=0;m<recMhs[i].getAllmatkul().size();m++){
+						for(unsigned int k=0;k<recMatkul.size();k++){
+							if(recMhs[i].getAllmatkul()[m]==recMatkul[k].getId()){
+								cout << recMatkul[k].getId() <<" | "<< recMatkul[k].getNama() <<" | "<<recMatkul[k].getKode() <<"| SKS: "<< recMatkul[k].getSKS()<< endl;
+								break;
+							}
+						}
+					} 
 				}
 			}
 				break;
@@ -164,6 +184,29 @@ int main()
 				}
 			}
 				break;
+			case 7:
+			{
+				string id;
+				cout << "masukkan id mahasiswa yang akan ditambahkan matkul:" << endl;
+				cin >> id;
+				for(unsigned int i=0;i<recMhs.size();i++){
+					if(id==recMhs[i].getId()){
+						for(unsigned int n=0;n<recMatkul.size();n++){
+							cout << recMatkul[n].getId() << " |" <<recMatkul[n].getNama() << " |" << recMatkul[n].getKode() << " | SKS: " << recMatkul[n].getSKS() << endl;
+						}
+						cout << "masukkan id matkul: ";
+						cin >> id;
+						for(unsigned int n=0;n<recMatkul.size();n++){
+							if(id==recMatkul[n].getId()){
+								recMhs[i].addMatkul(id);
+								break;
+							}
+						}
+						break;
+					}
+				}
+
+			}
 		}
 	}
 

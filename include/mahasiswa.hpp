@@ -14,6 +14,7 @@ private:
 	int skslulus;
 	float ipk;
 	std::vector<float> ips;
+	std::vector<std::string> matkul;
 
 public:
 	mahasiswa(std::string id, std::string nama, int dd, int mm, int yy,
@@ -34,6 +35,9 @@ public:
 	void setIPS(int semester, float ips);
 	float getIPS(int semester);
 	std::vector<float> getAllIPS();
+
+	void addMatkul(std::string id);
+	std::vector<std::string> getAllmatkul();
 };
 
 #endif

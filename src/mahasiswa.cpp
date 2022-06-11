@@ -73,5 +73,11 @@ int mahasiswa::getTahunMasuk()
 {
 	return this->tahunmasuk;
 }
+void mahasiswa::addMatkul(std::string id){
+	this->matkul.push_back (id);
+}
+std::vector<std::string> mahasiswa::getAllmatkul(){
+	return this->matkul;
+}
 
 
